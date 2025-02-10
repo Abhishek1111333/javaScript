@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table with Search Filter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+    }
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      text-align: left;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    #myInput {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="myInput" placeholder="Search for names...">
+
+  <table id="myTable">
+    <thead>
+      <tr class="header">
+        <th>Name</th>
+        <th>Degree</th>
+        <th>Profession</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>Bachelor of Science</td>
+        <td>Software Engineer</td>
+      </tr>
+      <tr>
+        <td>Jane Smith</td>
+        <td>Master of Arts</td>
+        <td>Graphic Designer</td>
+      </tr>
+      <tr>
+        <td>Michael Brown</td>
+        <td>PhD in Physics</td>
+        <td>Research Scientist</td>
+      </tr>
+      <tr>
+        <td>Emily Davis</td>
+        <td>Bachelor of Business Administration</td>
+        <td>Marketing Manager</td>
+      </tr>
+      <tr>
+        <td>David Johnson</td>
+        <td>Master of Engineering</td>
+        <td>Civil Engineer</td>
+      </tr>
+      <tr>
+        <td>Olivia Wilson</td>
+        <td>Bachelor of Fine Arts</td>
+        <td>Art Director</td>
+      </tr>
+      <tr>
+        <td>William Martinez</td>
+        <td>Doctor of Medicine</td>
+        <td>Cardiologist</td>
+      </tr>
+      <tr>
+        <td>Sophia Taylor</td>
+        <td>Master of Computer Science</td>
+        <td>Data Analyst</td>
+      </tr>
+      <tr>
+        <td>James Anderson</td>
+        <td>Bachelor of Science in Nursing</td>
+        <td>Registered Nurse</td>
+      </tr>
+      <tr>
+        <td>Charlotte Thomas</td>
+        <td>PhD in Chemistry</td>
+        <td>Research Chemist</td>
+      </tr>
+      <tr>
+        <td>Benjamin Lee</td>
+        <td>Bachelor of Arts</td>
+        <td>Content Writer</td>
+      </tr>
+      <tr>
+        <td>Amelia White</td>
+        <td>Master of Education</td>
+        <td>School Principal</td>
+      </tr>
+      <tr>
+        <td>Alexander Harris</td>
+        <td>Bachelor of Architecture</td>
+        <td>Architect</td>
+      </tr>
+      <tr>
+        <td>Isabella Moore</td>
+        <td>Bachelor of Law</td>
+        <td>Legal Advisor</td>
+      </tr>
+      <tr>
+        <td>Matthew Jackson</td>
+        <td>PhD in Mathematics</td>
+        <td>Mathematics Professor</td>
+      </tr>
+      <tr>
+        <td>Emma Clark</td>
+        <td>Bachelor of Science in Agriculture</td>
+        <td>Agricultural Consultant</td>
+      </tr>
+      <tr>
+        <td>Daniel Rodriguez</td>
+        <td>Master of Public Health</td>
+        <td>Epidemiologist</td>
+      </tr>
+      <tr>
+        <td>Ava Lewis</td>
+        <td>Bachelor of Psychology</td>
+        <td>Clinical Psychologist</td>
+      </tr>
+      <tr>
+        <td>Christopher Walker</td>
+        <td>Master of Finance</td>
+        <td>Financial Analyst</td>
+      </tr>
+      <tr>
+        <td>Mia Hall</td>
+        <td>PhD in Biology</td>
+        <td>Biologist</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    document.getElementById("myInput").addEventListener("input",function(){
+        const search=this.value.toUpperCase()
+        const tabeldata=document.getElementById("myTable")
+        const tr=document.getElementsByTagName("tr")
+       
+        for(let i=1;i<tr.length;i++){
+            const cells=tr[i].getElementsByTagName("td")
+            let matchFound=false;
+           
+            for(const cell of cells){
+                if(cell.textContent.toUpperCase().includes(search)){
+                    matchFound=true
+                    console.log("step4")
+                    break;
+                }
+            }
+            
+            tr[i].style.display = matchFound ? "" : "none";
+        }
+        
+    })
+
+      
+  
+  </script>
+</body>
+</html>
